@@ -1,24 +1,23 @@
 import logo from './logo.svg';
 import './App.css';
+import MailDashboard from './Components/MailPage';
+import { Box } from '@mui/material';
+import Sidebar from './Components/Sidebar';
+import { BrowserRouter, Route, Routes } from 'react-router';
+import PatientList from './Components/PatientList';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Box display="flex" height="100vh" bgcolor="#f8e8e8" padding={2}>
+      <Sidebar/>
+      <BrowserRouter>
+          <Routes>
+            <Route path="/mail" element={<MailDashboard/>} />
+            <Route path="/patient-list" element={<PatientList/>} />
+
+          </Routes>
+        </BrowserRouter>
+    </Box>
   );
 }
 
